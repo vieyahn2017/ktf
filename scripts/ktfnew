@@ -12,10 +12,10 @@
 import sys, os, shutil
 
 def usage():
-    print "Usage: %s [-p <path>] <projectname>" % sys.argv[0]
-    print "  - Initialize a new ktf based test project called <projectname>"
-    print "    Default is to populate a new directory called <projectname> in the same directory"
-    print "    as where the ktf source tree is placed, assuming we are called from the source"
+    print("Usage: %s [-p <path>] <projectname>" % sys.argv[0])
+    print("  - Initialize a new ktf based test project called <projectname>")
+    print("    Default is to populate a new directory called <projectname> in the same directory")
+    print("    as where the ktf source tree is placed, assuming we are called from the source")
     exit(0)
 
 
@@ -52,13 +52,13 @@ if path == None:
 target_root = "%s/%s" % (path, name)
 email = "myemail@example.com"
 
-print "Creating a new project under " + target_root
+print("Creating a new project under " + target_root)
 
 try:
     os.makedirs(target_root)
 except OSError as exc:
     if exc.errno == os.errno.EEXIST:
-        print " ** Project path %s already exists - giving up! **" % target_root
+        print(" ** Project path %s already exists - giving up! **" % target_root)
         exit(17)
     else:
         raise
@@ -147,5 +147,5 @@ module_exit(%s_exit);
     # Now run an intitial autoreconf to set things up:
     os.system("(cd %s && autoreconf -i 2> /dev/null)" % target_root)
 except:
-    print " ** Error: ** "
+    print(" ** Error: ** ")
     raise
